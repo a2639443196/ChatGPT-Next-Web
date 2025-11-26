@@ -264,7 +264,9 @@ export class SiliconflowApi implements LLMApi {
     });
 
     const resJson = (await res.json()) as SiliconFlowListModelResponse;
-    const chatModels = resJson.data;
+    const chatModels = resJson.data
+      ?.filter((m) => !m.id.startsWith("Pro/"))
+      ?.sort((a, b) => a.id.localeCompare(b.id));
     console.log("[Models]", chatModels);
 
     if (!chatModels) {
