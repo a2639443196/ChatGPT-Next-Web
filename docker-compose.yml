@@ -6,7 +6,7 @@ services:
     build: .
     image: nextchat-local
     ports:
-      - 3000:3000
+      - 9091:3000
     environment:
       - SILICONFLOW_API_KEY=${SILICONFLOW_API_KEY}
       - SILICONFLOW_URL=${SILICONFLOW_URL}
